@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relax App</title>
+<link rel="manifest" href="manifest.json">
+<style>
+body{margin:0;height:100vh;font-family:Arial;background:#222;display:flex;align-items:center;justify-content:center;color:#fff}
+.app{width:100%;max-width:380px;background:#111;border-radius:20px;padding:20px;text-align:center}
+button{padding:12px;border:none;border-radius:12px;background:#ff3d6e;color:#fff;margin:6px;width:100%}
+.card{background:#222;border-radius:12px;padding:10px;margin:8px 0}
+svg{width:180px}
+</style>
+</head>
+<body>
+<div class="app">
+<h2>Relax App</h2>
+<button onclick="toggle()">Modo Discreto</button>
+<div id="ilustracao"></div>
+<div class="card" id="posicao">Posição</div>
+<div class="card" id="desafio">Desafio</div>
+<button onclick="rolar()">Sortear</button>
+</div>
+<script>
+let dados=[
+"Conexão próxima","Contato visual","Exploração lenta","Expressões intensas"
+];
+function rolar(){
+posicao.innerText=dados[Math.floor(Math.random()*dados.length)];
+desafio.innerText="Aproveitem o momento";
+ilustracao.innerHTML=`<svg viewBox='0 0 200 120'><circle cx='100' cy='40' r='20' fill='#fff'/></svg>`;
+}
+function toggle(){document.body.style.background='#000';}
+</script>
+</body>
+</html>
